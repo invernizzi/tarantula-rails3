@@ -7,7 +7,18 @@ rescue Gem::LoadError
 end
 
 if defined? Tidy
-  Tidy.path = ENV['TIDY_PATH'] if ENV['TIDY_PATH']
+  if ENV['TIDY_PATH']
+    #we trust the user
+    Tidy.path = ENV['TIDY_PATH']
+  else
+    begin
+      #linux
+      Tidy.path = '/usr/lib/libtidy.so'
+    rescue LoadError
+      #I'm a mac
+      Tidy.path = '/usr/lib/libtidy.dylib'
+    end
+  end
 
   class Relevance::Tarantula::TidyHandler 
     include Relevance::Tarantula
