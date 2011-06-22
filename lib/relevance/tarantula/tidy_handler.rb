@@ -24,7 +24,7 @@ if defined? Tidy
     include Relevance::Tarantula
     def initialize(options = {})
       @options = {:show_warnings=>true,
-                  :char_encoding=>'utf-8'}.merge(options)
+                  :char_encoding=>'utf8'}.merge(options)
     end
     def handle(result)
       response = result.response
