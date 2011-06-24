@@ -101,18 +101,27 @@ class Relevance::Tarantula::Crawler
     end
   end
 
-  def save_result(result)
-    #if an error is set to be ignored, do so.
+  def save_result(results)
     begin
-        if result and not result.success
-            result.success = Relevance::Tarantula::Blessing.is_blessed?(result)
+        #Handlers can return an array of multiple results, or a single result.
+        # Make them all a list
+        unless results.respond_to?("each")
+            results = [results]
         end
+
+
+        results.each do |result|
+            #if an error is set to be ignored, do so.
+            if result and not result.success
+                result.success = Relevance::Tarantula::Blessing.is_blessed?(result)
+            end
+        reporters.each do |reporter|
+          reporter.report(result)
+        end
+    end
     rescue Exception => e
         puts e.message
         raise
-    end
-    reporters.each do |reporter|
-      reporter.report(result)
     end
   end
 
