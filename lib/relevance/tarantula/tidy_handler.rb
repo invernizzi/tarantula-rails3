@@ -37,6 +37,9 @@ if defined? Tidy
         error_result = result.dup
         error_result.description = "Bad HTML (Tidy)"
         error_result.data = tidy.errors.inspect
+        #removing the line and column information to let developers suppress a
+        #warning with the Blessing module
+        error_result.data_blessing = error_result.data.gsub(/line\s+\d+\s+column\s+\d+/i, "")
         error_result
       end
     end

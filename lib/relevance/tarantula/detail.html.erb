@@ -45,6 +45,27 @@
           </tbody>
         </table>                            
 
+        <% unless result.success %>
+        <table class="output">
+        <tbody>
+          <tr>                
+            <th colspan="2">#&nbsp;&nbsp;Silence!</th>           
+          </tr>
+          <tr>
+            <td colspan="2">
+                To suppress this warning for this URL, add this to the array in
+                <%= Relevance::Tarantula::Blessing.get_blessings_path%>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+                <%= "['#{result.url}', '#{Relevance::Tarantula::Blessing.hash_result(result)}']," %>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <%end %>
+
         <table class="output" id="fragment-1">
           <tbody>
           <tr>

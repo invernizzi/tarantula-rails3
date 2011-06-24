@@ -102,6 +102,15 @@ class Relevance::Tarantula::Crawler
   end
 
   def save_result(result)
+    #if an error is set to be ignored, do so.
+    begin
+        if result and not result.success
+            result.success = Relevance::Tarantula::Blessing.is_blessed?(result)
+        end
+    rescue Exception => e
+        puts e.message
+        raise
+    end
     reporters.each do |reporter|
       reporter.report(result)
     end
@@ -113,6 +122,7 @@ class Relevance::Tarantula::Crawler
         save_result h.handle(result)
       rescue Exception => e
         log "error handling #{link} #{e.message}"
+        puts e.message
         # TODO: pass to results
       end
     end
