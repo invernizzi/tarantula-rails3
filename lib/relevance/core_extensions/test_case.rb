@@ -199,6 +199,3 @@ module Relevance::CoreExtensions::TestCaseExtensions
 
 end
 
-if defined? ActionController::IntegrationTest
-    ActionController::IntegrationTest.class_eval { include Relevance::CoreExtensions::TestCaseExtensions }
-end

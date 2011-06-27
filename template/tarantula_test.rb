@@ -2,6 +2,8 @@ require "test_helper"
 require "relevance/tarantula"
 
 class TarantulaTest < ActionController::IntegrationTest
+  include Relevance::CoreExtensions::TestCaseExtensions
+
   # Load enough test data to ensure that there's a link to every page in your
   # application. Doing so allows Tarantula to follow those links and crawl 
   # every page.  For many applications, you can load a decent data set by
