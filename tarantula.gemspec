@@ -5,10 +5,10 @@ Gem::Specification.new do |s|
   s.version = "0.3.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Relevance, Inc."]
+  s.authors = ["Relevance, Inc.", "Luca Invernizzi"]
   s.date = %q{2011-02-14}
   s.description = %q{A big hairy fuzzy spider that crawls your site, wreaking havoc}
-  s.email = %q{opensource@thinkrelevance.com}
+  s.email = [%q{opensource@thinkrelevance.com}, %q{invernizzi.l@gmail.com}]
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -77,9 +77,11 @@ Gem::Specification.new do |s|
      "lib/relevance/tarantula/test_report.html.erb",
      "lib/relevance/tarantula/tidy_handler.rb",
      "lib/relevance/tarantula/transform.rb",
+     "lib/relevance/tarantula/blessing.rb",
      "lib/tarantula-rails3.rb",
      "lib/relevance/tasks/tarantula_tasks.rake",
-     "template/tarantula_test.rb"
+     "template/tarantula_test.rb",
+     "template/blessed.rb"
   ]
   s.homepage = %q{http://github.com/nashby/tarantula-rails3}
   s.rdoc_options = ["--charset=UTF-8"]
