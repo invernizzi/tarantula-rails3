@@ -1,6 +1,7 @@
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + '/../micronaut/lib/'))
 require 'micronaut'
 require 'micronaut/rake_task'
 
@@ -13,13 +14,14 @@ begin
     s.name = "tarantula-rails3"
     s.summary = "A big hairy fuzzy spider that crawls your site, wreaking havoc"
     s.description = "A big hairy fuzzy spider that crawls your site, wreaking havoc"
-    s.homepage = "http://github.com/nashby/tarantula-rails3"
-    s.email = "opensource@thinkrelevance.com"
-    s.authors = ["Relevance, Inc."]
+    s.homepage = "http://github.com/invernizzi/tarantula-rails3"
+    s.email = ["opensource@thinkrelevance.com", "invernizzi.l@gmail.com"]
+    s.authors = ["Relevance, Inc.", "Luca Invernizzi"]
     s.require_paths = ["lib"]
     s.files = files.flatten
     s.add_dependency 'htmlentities', '>= 4.2.0'
     s.add_dependency 'hpricot', '>= 0.8.1'
+    s.add_dependency "tidy"
     s.add_development_dependency 'micronaut'
     s.add_development_dependency 'log_buddy'
   end
