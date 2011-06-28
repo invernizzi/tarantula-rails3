@@ -10,7 +10,7 @@ namespace :tarantula do
       t.pattern = 'test/tarantula/**/*_test.rb'
       t.verbose = true
     end
-    
+
     Rake::Task[:tarantula_test].invoke
   end
 
@@ -20,13 +20,13 @@ namespace :tarantula do
       Rake::Task['tarantula:test'].invoke
     rescue RuntimeError => e
       puts e.message
-    end    
-    
+    end
+
     Dir.glob("tmp/tarantula/**/index.html") do |file|
       if PLATFORM['darwin']
         system("open #{file}")
       elsif PLATFORM[/linux/]
-        system("firefox #{file}")
+        system("xdg-open #{file}")
       else
         puts "You can view tarantula results at #{file}"
       end
