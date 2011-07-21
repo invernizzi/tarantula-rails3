@@ -16,7 +16,11 @@ if defined? Tidy
       Tidy.path = '/usr/lib/libtidy.so'
     rescue LoadError
       #I'm a mac
-      Tidy.path = '/usr/lib/libtidy.dylib'
+      begin
+        Tidy.path = '/usr/lib/libtidy.dylib'
+      rescue LoadError
+        puts "Tidy library not found, install it"
+      end
     end
   end
 
@@ -27,6 +31,7 @@ if defined? Tidy
                   :char_encoding=>'utf8'}.merge(options)
     end
     def handle(result)
+      return unless Tidy.path
       response = result.response
       return unless response.html?
       tidy = Tidy.open(@options) do |tidy|
