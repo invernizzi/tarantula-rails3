@@ -235,6 +235,10 @@ class Relevance::Tarantula::Crawler
       rescue RuntimeError => e
         errors << e
       end
+    unless errors.empty?
+      puts "Some tests failed. For CI support, we will now raise a exception"
+      raise errors.map(&:message).join("\n")
+    end
     end
   end
 
