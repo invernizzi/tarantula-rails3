@@ -236,10 +236,6 @@ class Relevance::Tarantula::Crawler
         errors << e
       end
     end
-    unless errors.empty?
-      puts "Some tests failed. For CI support, we will now raise a exception"
-      raise errors.map(&:message).join("\n")
-    end
   end
 
   def report_results
