@@ -54,6 +54,7 @@ class Relevance::Tarantula::Crawler
   end
 
   def crawl(url = "/")
+    @errors = []
     orig_links_queued = @links_queued.dup
     orig_form_signatures_queued = @form_signatures_queued.dup
     orig_crawl_queue = @crawl_queue.dup
@@ -79,7 +80,12 @@ class Relevance::Tarantula::Crawler
   rescue Interrupt
     $stderr.puts "CTRL-C"
   ensure
-    report_results
+    #return the number of problems found
+    @errors = report_results
+  end
+
+  def problems_found?
+    not @errors.empty?
   end
 
   def finished?
@@ -235,11 +241,8 @@ class Relevance::Tarantula::Crawler
       rescue RuntimeError => e
         errors << e
       end
-    unless errors.empty?
-      puts "Some tests failed. For CI support, we will now raise a exception"
-      raise errors.map(&:message).join("\n")
     end
-    end
+    errors
   end
 
   def report_results
