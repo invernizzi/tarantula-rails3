@@ -57,3 +57,4 @@ require File.expand_path(File.join(File.dirname(__FILE__), "tarantula", "link"))
 require File.expand_path(File.join(File.dirname(__FILE__), "tarantula", "blessing"))
 
 require File.expand_path(File.join(File.dirname(__FILE__), "tarantula", "tidy_handler"))
+require File.expand_path(File.join(File.dirname(__FILE__), "tarantula", "text_presence"))
