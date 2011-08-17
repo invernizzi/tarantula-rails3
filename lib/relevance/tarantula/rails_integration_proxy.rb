@@ -31,6 +31,7 @@ class Relevance::Tarantula::RailsIntegrationProxy
   [:get, :post, :put, :delete].each do |verb|
     define_method(verb) do |url, *args|
       begin
+        url = URI.escape url
         integration_test.send(verb, url, *args)
       rescue URI::InvalidURIError => e
         puts "Invalid URI found: url='#{url.inspect}' args='#{args.inspect}'"
