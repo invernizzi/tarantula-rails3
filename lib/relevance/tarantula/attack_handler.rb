@@ -31,6 +31,7 @@ class Relevance::Tarantula::AttackHandler
         ########################################################################
         #{attacks.select {|a| a.output == $1}[0].to_yaml}
       STR
+      error_result.data_blessing = attacks.select {|a| a.output == $1}[0].to_yaml
       error_result
     end
   end
