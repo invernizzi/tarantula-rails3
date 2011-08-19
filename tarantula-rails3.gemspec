@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Relevance, Inc.", "Luca Invernizzi"]
-  s.date = %q{2011-06-28}
+  s.authors = [%q{Relevance, Inc.}, %q{Luca Invernizzi}]
+  s.date = %q{2011-08-19}
   s.description = %q{A big hairy fuzzy spider that crawls your site, wreaking havoc}
-  s.email = ["opensource@thinkrelevance.com", "invernizzi.l@gmail.com"]
+  s.email = [%q{opensource@thinkrelevance.com}, %q{invernizzi.l@gmail.com}]
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
@@ -80,6 +80,7 @@ Gem::Specification.new do |s|
     "lib/relevance/tarantula/response.rb",
     "lib/relevance/tarantula/result.rb",
     "lib/relevance/tarantula/test_report.html.erb",
+    "lib/relevance/tarantula/text_presence.rb",
     "lib/relevance/tarantula/tidy_handler.rb",
     "lib/relevance/tarantula/transform.rb",
     "lib/relevance/tasks/tarantula_tasks.rake",
@@ -88,8 +89,8 @@ Gem::Specification.new do |s|
     "template/tarantula_test.rb"
   ]
   s.homepage = %q{http://github.com/invernizzi/tarantula-rails3}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.7.2}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.8}
   s.summary = %q{A big hairy fuzzy spider that crawls your site, wreaking havoc}
   s.test_files = [
     "examples/example_helper.rb",
