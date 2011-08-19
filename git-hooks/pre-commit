@@ -1,0 +1,2 @@
+#!/bin/sh
+exec rake gemspec:generate build
